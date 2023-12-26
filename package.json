@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -14,7 +15,8 @@
     "@astrojs/tailwind": "^5.0.4",
     "astro": "^4.0.7",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vercel": "^33.0.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10"
