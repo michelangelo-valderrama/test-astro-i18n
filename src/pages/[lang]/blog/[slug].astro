@@ -23,9 +23,11 @@ const { Content } = await post.render()
 ---
 
 <BaseLayout title={post.data.title}>
-  <article>
-    <h1>{post.data.title}</h1>
-    <hr />
+  <article
+    class="prose prose-headings:text-[#f6e8da] prose-invert max-w-none mb-32"
+  >
+    <h1 class="text-4xl font-bold text-center mb-6">{post.data.title}</h1>
+    <hr class="mb-14 border-[#f6e8da]" />
     <Content />
   </article>
 </BaseLayout>

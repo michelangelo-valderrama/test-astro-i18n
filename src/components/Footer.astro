@@ -1,0 +1,31 @@
+---
+import { getLanguageFromUrl, useTranslations } from "../i18n"
+import Trans from "../i18n/Trans.astro"
+
+const lang = getLanguageFromUrl(Astro.url)
+const t = useTranslations(lang, "footer")
+---
+
+<footer
+  class="border-t-2 px-4 border-[#f6e8da]/20 py-8 space-y-4 text-sm"
+>
+  <Trans
+    class="text-center italic text-[#c9c1b8]"
+    page="footer"
+    section="maded_by"
+  >
+    Made with 🤍 by <a
+      class="underline text-[#a4cadc]"
+      href="https://neolorem.dev/about">Michelangelo</a
+    >
+  </Trans>
+
+  <p class="text-center">
+    <a
+      class="hover:bg-[#f6e8da]/20 px-2 py-1"
+      href="https://github.com/michelangelo-valderrama/test-astro-i18n"
+    >
+      {t().repository}
+    </a>
+  </p>
+</footer>

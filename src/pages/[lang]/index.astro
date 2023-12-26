@@ -14,5 +14,13 @@ const t = useTranslations(lang as Lang, "home")
 ---
 
 <BaseLayout title={t().head_title}>
-  <h1>{t().title}</h1>
+  <h1 class="text-4xl font-bold mb-4">{t().title}</h1>
+  <p class="text-lg">{t().subtitle}</p>
+  <div class="mt-10">
+    <img
+      class="w-full"
+      src="/this-is-fine.gif"
+      alt={t("alt_images").home.this_is_fine}
+    />
+  </div>
 </BaseLayout>

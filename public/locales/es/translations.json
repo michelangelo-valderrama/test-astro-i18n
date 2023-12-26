@@ -1,7 +1,16 @@
 {
+  "alt_images": {
+    "home": {
+      "this_is_fine": "Gif del meme 'this is fine'"
+    }
+  },
   "home": {
     "head_title": "Inicio",
     "title": "¡Bienvenido!",
-    "subtitle": "ok"
+    "subtitle": "Esto es un prueba de Astro con i18n."
+  },
+  "footer": {
+    "maded_by": "Hecho con 🤍 por <0>Michelangelo</0>",
+    "repository": "Ver repositorio de GitHub"
   }
 }

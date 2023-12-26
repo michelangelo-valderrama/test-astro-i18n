@@ -1,6 +1,17 @@
 {
+  "alt_images": {
+    "home": {
+      "this_is_fine": "Gif du mème 'this is fine'"
+    }
+  },
+
   "home": {
     "head_title": "Début",
-    "title": "Accueillir!"
+    "title": "Accueillir!",
+    "subtitle": "Il s'agit d'un test Astro avec i18n."
+  },
+  "footer": {
+    "maded_by": "Réalisé avec 🤍 par <0>Michelangelo</0>",
+    "repository": "Afficher le dépôt GitHub"
   }
 }

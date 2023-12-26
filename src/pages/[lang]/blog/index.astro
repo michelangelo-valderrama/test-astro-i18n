@@ -18,10 +18,10 @@ const blog = await getCollection(
 ---
 
 <BaseLayout title="Blog">
-  <h1>Blog</h1>
+  <h1 class="text-4xl font-bold mb-8">Blog</h1>
   {
     blog.map(({ slug, data }) => (
-      <a href={`/${lang}/blog/${slug.split("/")[1]}`}>
+      <a class="border-l-4 border-l-[#a4cadc] text-[#a4cadc] block pl-2 text-lg hover:underline" href={`/${lang}/blog/${slug.split("/")[1]}`}>
         <p>{data.title}</p>
       </a>
     ))

@@ -2,19 +2,46 @@
 import { DEFAULT_LANGUAGE, LANGUAGES, getLanguageFromUrl } from "../i18n"
 import LanguagePicker from "../i18n/LanguagePicker.astro"
 
-const l = getLanguageFromUrl(Astro.url)
+const url = Astro.url
+const l = getLanguageFromUrl(url)
+const { pathname } = url
 
 const lang = l in LANGUAGES ? l : DEFAULT_LANGUAGE
+
+const pages = [
+  {
+    name: "Home",
+    url: "",
+  },
+  {
+    name: "Blog",
+    url: "blog",
+  },
+]
+console.log(pathname)
 ---
 
-<nav>
-  <div>
-    <LanguagePicker />
-  </div>
+<nav class="mb-20 mt-4 flex items-center justify-between">
   <ul>
-    <li>
-      <a href={`/${lang}/`}>Home</a>
-      <a href={`/${lang}/blog`}>Blog</a>
+    <li class="flex items-center gap-x-4 text-lg text-[#a4cadc]">
+      {
+        pages.map(({ name, url }) => (
+          <a
+            class:list={[
+              "hover:underline underline-offset-8",
+              {
+                "font-bold underline": pathname.split("/").at(-1) === url,
+              },
+            ]}
+            href={`/${lang}/${url}`}
+          >
+            {name}
+          </a>
+        ))
+      }
     </li>
   </ul>
+  <div class="flex items-start gap-x-6">
+    <LanguagePicker />
+  </div>
 </nav>

@@ -1,0 +1,24 @@
+---
+import {
+  DEFAULT_LANGUAGE,
+  getLanguageFromUrl,
+  useTranslations,
+  type Page,
+} from "."
+import { replaceTextTargetsByTemplate } from "./languageTarget"
+
+interface Props {
+  page?: Page
+  section: string
+  class?: string
+}
+
+const { page, section, class: className } = Astro.props
+const lang = getLanguageFromUrl(Astro.url)
+const t = useTranslations(lang, page)
+
+const slot = await Astro.slots.render("default")
+const text = lang === DEFAULT_LANGUAGE ? slot : (t()[section] as string)
+---
+
+<p class={className} set:html={replaceTextTargetsByTemplate(slot, text)} />
