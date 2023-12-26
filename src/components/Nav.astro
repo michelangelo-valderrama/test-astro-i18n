@@ -1,0 +1,20 @@
+---
+import { DEFAULT_LANGUAGE, LANGUAGES, getLanguageFromUrl } from "../i18n"
+import LanguagePicker from "../i18n/LanguagePicker.astro"
+
+const l = getLanguageFromUrl(Astro.url)
+
+const lang = l in LANGUAGES ? l : DEFAULT_LANGUAGE
+---
+
+<nav>
+  <div>
+    <LanguagePicker />
+  </div>
+  <ul>
+    <li>
+      <a href={`/${lang}/`}>Home</a>
+      <a href={`/${lang}/blog`}>Blog</a>
+    </li>
+  </ul>
+</nav>

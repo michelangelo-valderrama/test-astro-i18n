@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content"
+import { LANGUAGES_ARRAY } from "../../../i18n"
+import BaseLayout from "../../../layouts/BaseLayout.astro"
+
+export const getStaticPaths = () => {
+  return LANGUAGES_ARRAY.map((lang) => ({
+    params: { lang },
+  }))
+}
+
+const { lang } = Astro.params
+
+const blog = await getCollection(
+  "blog",
+  ({ slug }) => slug.split("/")[0] === lang
+)
+---
+
+<BaseLayout title="Blog">
+  <h1>Blog</h1>
+  {
+    blog.map(({ slug, data }) => (
+      <a href={`/${lang}/blog/${slug.split("/")[1]}`}>
+        <p>{data.title}</p>
+      </a>
+    ))
+  }
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import { LANGUAGES, LOCALES, type Lang } from "."
+const url = Astro.url
+const origin = url.origin
+const [, lang, ...slug] = url.pathname.split("/")
+---
+
+<!-- OPTION 01 -->
+<select id="lang-selector">
+  <option value="" selected>{LANGUAGES[lang as Lang]}</option>
+  {
+    Object.entries(LANGUAGES).map(([l, label]) => (
+      <>
+        {l !== lang && (
+          <option value={`${origin}/${l}/${slug.join("/")}`}>{label}</option>
+        )}
+      </>
+    ))
+  }
+</select>
+
+<!-- OPTION 02 -->
+<ul>
+  {
+    Object.entries(LANGUAGES).map(([l, label]) => (
+      <li>
+        <a
+          href={`${origin}/${l}/${slug.join("/")}`}
+          hreflang={LOCALES[l as keyof typeof LOCALES]}
+          class:list={[
+            {
+              bold: l === lang,
+            },
+          ]}
+        >
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  function optionsAsLinks(selector: string) {
+    const selectElem = document.querySelector(selector) as HTMLSelectElement
+
+    selectElem.addEventListener("change", () => {
+      const selectedIndex = selectElem.selectedIndex
+
+      if (selectElem.options[selectedIndex].value) {
+        const url = selectElem.options[selectedIndex].value
+        window.location = url as string & Location
+      }
+    })
+  }
+
+  optionsAsLinks("#lang-selector")
+</script>
+
+<style>
+  .bold {
+    font-weight: bold;
+  }
+</style>
