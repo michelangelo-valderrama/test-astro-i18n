@@ -1,0 +1,32 @@
+---
+import { DEFAULT_LANGUAGE, LOCALES } from "./"
+import { getAbsoluteLocaleUrl } from "astro:i18n"
+---
+
+<link
+  rel="alternate"
+  href={getAbsoluteLocaleUrl(DEFAULT_LANGUAGE)}
+  hreflang="x-default"
+/>
+{
+  Object.keys(LOCALES).map((l) => (
+    <link
+      rel="alternate"
+      href={getAbsoluteLocaleUrl(l)}
+      hreflang={LOCALES[l as keyof typeof LOCALES]}
+    />
+  ))
+}
+
+<meta property="og:locale" content={LOCALES[DEFAULT_LANGUAGE]} />
+{
+  Object.keys(LOCALES).map((l) => {
+    if (l === DEFAULT_LANGUAGE) return
+    return (
+      <meta
+        property="og:locale:alternate"
+        content={LOCALES[l as keyof typeof LOCALES]}
+      />
+    )
+  })
+}

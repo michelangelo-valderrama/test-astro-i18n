@@ -2,6 +2,7 @@
 import { getLanguageFromUrl } from "../i18n"
 import Nav from "../components/Nav.astro"
 import Footer from "../components/Footer.astro"
+import I18NHeaders from "../i18n/I18nHeaders.astro"
 
 interface Props {
   title: string
@@ -17,12 +18,13 @@ const lang = getLanguageFromUrl(Astro.url)
     <meta name="generator" content={Astro.generator} />
     <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
     <title>{Astro.props.title}</title>
+    <I18NHeaders />
   </head>
   <body class="bg-[#1c1c1e] text-[#f6e8da]">
     <div class="max-w-screen-sm mx-auto min-h-[98vh] p-4">
       <Nav />
       <slot />
     </div>
+    <Footer />
   </body>
-  <Footer />
 </html>
