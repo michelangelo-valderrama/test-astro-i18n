@@ -7,14 +7,6 @@ import {
 } from "@i18n/config"
 
 /**
- * Obtiene la ruta absoluta del idioma deseado
- * @param language
- */
-export function getAbsoluteLanguageUrl(language: Lang, pathname?: string) {
-  return `http://localhost:4321/${language}/${pathname}`
-}
-
-/**
  * Obtiene el idioma por el pathname.
  * @param pathname
  */

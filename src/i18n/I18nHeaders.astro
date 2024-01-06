@@ -1,20 +1,19 @@
 ---
-import { getAbsoluteLanguageUrl } from "@i18n/utils"
-import { DEFAULT_LANGUAGE, LOCALES, type Lang } from "@i18n/config"
+import { DEFAULT_LANGUAGE, LOCALES } from "@i18n/config"
 
 const [, , ...path] = Astro.url.pathname.split("/")
 ---
 
 <link
   rel="alternate"
-  href={getAbsoluteLanguageUrl(DEFAULT_LANGUAGE, path.join("/"))}
+  href={`${Astro.url.origin}${DEFAULT_LANGUAGE}/${path.join("/")}`}
   hreflang="x-default"
 />
 {
   Object.keys(LOCALES).map((l) => (
     <link
       rel="alternate"
-      href={getAbsoluteLanguageUrl(l as Lang, path.join("/"))}
+      href={`${Astro.url.origin}${l}/${path.join("/")}`}
       hreflang={LOCALES[l as keyof typeof LOCALES]}
     />
   ))
