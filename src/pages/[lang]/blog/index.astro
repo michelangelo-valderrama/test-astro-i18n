@@ -1,7 +1,7 @@
 ---
+import { LANGUAGES_ARRAY } from "@i18n/config"
+import BaseLayout from "@layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
-import { LANGUAGES_ARRAY } from "../../../i18n"
-import BaseLayout from "../../../layouts/BaseLayout.astro"
 
 export const getStaticPaths = () => {
   return LANGUAGES_ARRAY.map((lang) => ({
@@ -21,7 +21,10 @@ const blog = await getCollection(
   <h1 class="text-4xl font-bold mb-8">Blog</h1>
   {
     blog.map(({ slug, data }) => (
-      <a class="border-l-4 border-l-[#a4cadc] text-[#a4cadc] block pl-2 text-lg hover:underline" href={`/${lang}/blog/${slug.split("/")[1]}`}>
+      <a
+        class="border-l-4 border-l-[#a4cadc] text-[#a4cadc] block pl-2 text-lg hover:underline"
+        href={`/${lang}/blog/${slug.split("/")[1]}`}
+      >
         <p>{data.title}</p>
       </a>
     ))

@@ -1,6 +1,6 @@
-import es from "../../public/locales/es.json"
-import en from "../../public/locales/en.json"
-import fr from "../../public/locales/fr.json"
+import es from "@public/locales/es.json"
+import en from "@public/locales/en.json"
+import fr from "@public/locales/fr.json"
 
 export const LANGUAGES = {
   en: "English",

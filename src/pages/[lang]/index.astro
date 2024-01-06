@@ -1,6 +1,7 @@
 ---
-import { LANGUAGES_ARRAY, useTranslations, type Lang } from "../../i18n"
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import { LANGUAGES_ARRAY, type Lang } from "@i18n/config"
+import { useTranslations } from "@i18n/utils"
+import BaseLayout from "@layouts/BaseLayout.astro"
 
 export const getStaticPaths = () => {
   return LANGUAGES_ARRAY.map((lang) => ({

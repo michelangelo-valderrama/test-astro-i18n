@@ -1,8 +1,8 @@
 ---
-import { getLanguageFromUrl } from "../i18n"
-import Nav from "../components/Nav.astro"
-import Footer from "../components/Footer.astro"
-import I18NHeaders from "../i18n/I18nHeaders.astro"
+import I18NHeaders from "@i18n/I18nHeaders.astro"
+import { getLanguageFromUrl } from "@i18n/utils"
+import Nav from "@components/Nav.astro"
+import Footer from "@components/Footer.astro"
 
 interface Props {
   title: string

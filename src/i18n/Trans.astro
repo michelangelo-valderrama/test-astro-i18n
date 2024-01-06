@@ -1,11 +1,7 @@
 ---
-import {
-  DEFAULT_LANGUAGE,
-  getLanguageFromUrl,
-  useTranslations,
-  type Page,
-} from "."
+import { getLanguageFromUrl, useTranslations } from "@i18n/utils"
 import { replaceTextTargetsByTemplate } from "./languageTarget"
+import { DEFAULT_LANGUAGE, type Page } from "@i18n/config"
 
 interface Props {
   page?: Page
