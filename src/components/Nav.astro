@@ -11,11 +11,11 @@ const lang = l in LANGUAGES ? l : DEFAULT_LANGUAGE
 const pages = [
   {
     name: "Home",
-    url: "",
+    path: "",
   },
   {
     name: "Blog",
-    url: "blog",
+    path: "blog",
   },
 ]
 ---
@@ -24,15 +24,15 @@ const pages = [
   <ul>
     <li class="flex items-center gap-x-4 text-lg text-[#a4cadc]">
       {
-        pages.map(({ name, url }) => (
+        pages.map(({ name, path }) => (
           <a
             class:list={[
               "hover:underline underline-offset-8",
               {
-                "font-bold underline": pathname.join("/") === url,
+                "font-bold underline": pathname.join("/") === path,
               },
             ]}
-            href={`/${lang}/${url}`}
+            href={`/${lang}/${path}`}
           >
             {name}
           </a>
