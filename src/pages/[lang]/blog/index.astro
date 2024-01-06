@@ -25,7 +25,7 @@ const blog = await getCollection(
         class="border-l-4 border-l-[#a4cadc] text-[#a4cadc] block pl-2 text-lg hover:underline"
         href={`/${lang}/blog/${slug.split("/")[1]}`}
       >
-        <p>{data.title}</p>
+        <p set:html={data.title} />
       </a>
     ))
   }

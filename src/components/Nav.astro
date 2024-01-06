@@ -4,7 +4,7 @@ import LanguagePicker from "../i18n/LanguagePicker.astro"
 
 const url = Astro.url
 const l = getLanguageFromUrl(url)
-const { pathname } = url
+const [, , ...pathname] = url.pathname.split("/")
 
 const lang = l in LANGUAGES ? l : DEFAULT_LANGUAGE
 
@@ -18,7 +18,6 @@ const pages = [
     url: "blog",
   },
 ]
-console.log(pathname)
 ---
 
 <nav class="mb-20 mt-4 flex items-center justify-between">
@@ -30,7 +29,7 @@ console.log(pathname)
             class:list={[
               "hover:underline underline-offset-8",
               {
-                "font-bold underline": pathname.split("/").at(-1) === url,
+                "font-bold underline": pathname.join("/") === url,
               },
             ]}
             href={`/${lang}/${url}`}

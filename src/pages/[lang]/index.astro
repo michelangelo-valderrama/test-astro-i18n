@@ -15,8 +15,8 @@ const t = useTranslations(lang as Lang, "home")
 ---
 
 <BaseLayout title={t().head_title}>
-  <h1 class="text-4xl font-bold mb-4">{t().title}</h1>
-  <p class="text-lg">{t().subtitle}</p>
+  <h1 class="text-4xl font-bold mb-4" set:html={t().title} />
+  <p class="text-lg" set:html={t().subtitle} />
   <div class="mt-10">
     <img
       class="w-full"

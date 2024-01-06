@@ -26,7 +26,10 @@ const { Content } = await post.render()
   <article
     class="prose prose-headings:text-[#f6e8da] prose-invert max-w-none mb-32"
   >
-    <h1 class="text-4xl font-bold text-center mb-6">{post.data.title}</h1>
+    <h1
+      class="text-4xl font-bold text-center mb-6"
+      set:html={post.data.title}
+    />
     <hr class="mb-14 border-[#f6e8da]" />
     <Content />
   </article>

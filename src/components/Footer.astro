@@ -1,14 +1,12 @@
 ---
-import { getLanguageFromUrl, useTranslations } from "../i18n"
-import Trans from "../i18n/Trans.astro"
+import { getLanguageFromUrl, useTranslations } from "@i18n/utils"
+import Trans from "@i18n/Trans.astro"
 
 const lang = getLanguageFromUrl(Astro.url)
 const t = useTranslations(lang, "footer")
 ---
 
-<footer
-  class="border-t-2 px-4 border-[#f6e8da]/20 py-8 space-y-4 text-sm"
->
+<footer class="border-t-2 px-4 border-[#f6e8da]/20 py-8 space-y-4 text-sm">
   <Trans
     class="text-center italic text-[#c9c1b8]"
     page="footer"
@@ -24,8 +22,7 @@ const t = useTranslations(lang, "footer")
     <a
       class="hover:bg-[#f6e8da]/20 px-2 py-1"
       href="https://github.com/michelangelo-valderrama/test-astro-i18n"
-    >
-      {t().repository}
-    </a>
+      set:html={t().repository}
+    />
   </p>
 </footer>
