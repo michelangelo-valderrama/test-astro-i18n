@@ -17,7 +17,9 @@ const [, lang, ...slug] = url.pathname.split("/")
       {Object.entries(LANGUAGES).map(([l, label]) => (
         <>
           {l !== lang && (
-            <option value={`${origin}/${l}/${slug.join("/")}`}>{label}</option>
+            <option data-lang={l} value={`${origin}/${l}/${slug.join("/")}`}>
+              {label}
+            </option>
           )}
         </>
       ))}
@@ -56,7 +58,11 @@ const [, lang, ...slug] = url.pathname.split("/")
 
       if (selectElem.options[selectedIndex].value) {
         const url = selectElem.options[selectedIndex].value
-        window.location = url as string & Location
+        const lang = selectElem.options[selectedIndex].attributes.item(0)!.value
+        const aElem = document.createElement("a")
+        aElem.setAttribute("href", url)
+        aElem.setAttribute("hreflang", lang)
+        aElem.click()
       }
     })
   }

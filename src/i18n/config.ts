@@ -1,6 +1,6 @@
-import esTrans from "../../public/locales/es/translations.json"
-import enTrans from "../../public/locales/en/translations.json"
-import frTrans from "../../public/locales/fr/translations.json"
+import es from "../../public/locales/es.json"
+import en from "../../public/locales/en.json"
+import fr from "../../public/locales/fr.json"
 
 export const LANGUAGES = {
   en: "English",
@@ -18,11 +18,7 @@ export const LANGUAGES_ARRAY = Object.keys(LANGUAGES)
 
 export const DEFAULT_LANGUAGE = "en"
 
-export const TRANSLATIONS = {
-  es: esTrans,
-  en: enTrans,
-  fr: frTrans,
-}
+export const TRANSLATIONS = { es, en, fr }
 
 export type Lang = keyof typeof TRANSLATIONS
 export type Page = keyof (typeof TRANSLATIONS)[typeof DEFAULT_LANGUAGE]
